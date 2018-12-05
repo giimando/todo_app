@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import Header from './components/header';
 import { Avatar } from 'react-native-elements'
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+      <Header textIwant='Your Journey'/>
+      <Header textIwant={"Starts Here"}/>
       <Avatar
         xlarge
         rounded
