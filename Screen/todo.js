@@ -1,35 +1,74 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, FlatList, SectionList } from 'react-native';
 
-class TodoScreen extends React.Component{
-    static navigationOptions = {
-        title: 'ToDo',
-      };
-    render(){
-        return( 
-            <ScrollView>
-                <View style={styles.container1} />
-                <View style={styles.container2} />
-                <View style={styles.container3} />
-                <View style={styles.container4} />
-            </ScrollView>
+class Todo extends React.Component {
+
+    renderRow = ({ item }) =>
+        (<View style={styles.row}>
+            <Text>{item.text}</Text>
+        </View>);
+
+        renderSectionHeader=  ({ section }) =>
+        (<View style={styles.header}>
+            <Text>{section.title}</Text>
+        </View>);
+
+
+    render() {
+        return (
+            <SectionList
+                sections={sections}
+                renderItem={this.renderRow}
+                renderSectionHeader={this.renderSectionHeader}
+
+            />
+
         );
     }
 }
 
+
+const sections = [
+    {
+        id: 0,
+        title: 'Notifications',
+        data:
+            [
+                { id: 0, text: 'No Class Today' },
+                { id: 1, text: 'The gym will be closed on' }
+            ]
+    },
+
+
+    { 
+        id: 1, 
+        title: 'Section 2', 
+        data: 
+        [
+            { id: 3, text: 'Item 3' }, 
+            { id: 4, text: 'Item 4' },
+            { id: 5, text: 'Item 5' },
+            { id: 6, text: 'Item 6' },
+            { id: 7, text: 'Item 7' }
+        ] }
+];
+
+
 const styles = StyleSheet.create({
-    container1: {
-        padding: 100, 
-        backgroundColor: 'black'},
-        container2: {
-            padding: 100, 
-            backgroundColor: 'grey'},   
-            container3: {
-                padding: 100, 
-                backgroundColor: 'white'},
-                container4: {
-                    padding: 100, 
-                    backgroundColor: 'red'},
-    }
-);
-export default TodoScreen;
+    row: {
+        padding: 15,
+        marginBottom: 5,
+        backgroundColor: 'skyblue'
+    },
+
+    header: {
+        padding: 15, marginBottom: 5,
+        backgroundColor: 'grey',
+        color: 'white', fontWeight: 'bold',
+      }
+    })
+;
+
+
+export default Todo;
+ 
