@@ -49,7 +49,7 @@ const sections = [
             { id: 4, text: 'Item 4' },
             { id: 5, text: 'Item 5' },
             { id: 6, text: 'Item 6' },
-            { id: 7, text: 'Item 7' }
+            { id: 7, text: 'Item 7' }   
         ] }
 ];
 
